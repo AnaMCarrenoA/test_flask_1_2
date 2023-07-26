@@ -11,8 +11,9 @@ def read():
     return jsonify ({"payload":foo})
 
 @app.route("/create?content=bar", methods=["POST"])
+
 def create():
     return jsonify({"payload":bar})
-    
+
 if __name__ == '__main__':
     app.run(debug=True)
