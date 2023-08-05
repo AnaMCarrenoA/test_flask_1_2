@@ -6,9 +6,5 @@ app = Flask(__name__)
 def index():
     return jsonify({"payload": "welcome to my project"})
 
-@app.route("/read?content=foo", methods=["DELETE"])
-def read():
-    return jsonify ({"payload":foo})
-
 if __name__ == '__main__':
     app.run(debug=True)
