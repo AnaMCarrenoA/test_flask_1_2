@@ -1,19 +1,30 @@
-from flask import Flask, jsonify
+from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route("/", methods=["GET"])
-def index():
-    return jsonify({"payload": "welcome to my project"})
-
-@app.route("/read?content=foo", methods=["DELETE"])
+@app.route("/read")
 def read():
-    return jsonify ({"payload":foo})
+    un_usuario = request.args.get("content")
 
-@app.route("/create?content=bar", methods=["POST"])
+    if un_usuario == "alfa":
+        return {"payload": content}
+    else:  return "error de usuario"
 
+@app.route("/create")
 def create():
-    return jsonify({"payload":bar})
+    un_usuario = request.args.post("content")
+
+    if un_usuario == "bravo":
+        return {"payload": content}
+    else:  return "error de usuario"
+
+@app.route("/init")
+def init():
+    un_usuario = request.args.get("content")
+
+    if un_usuario == "charlie":
+        return {"payload":content}
+    else:  return "error de usuario"
 
 if __name__ == '__main__':
     app.run(debug=True)
